@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customerController">
+
+    <table>
+        <tr ng-repeat="customer in names | orderBy : 'country'">
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.country }}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customerController', function($scope) {
+        $scope.names = [
+            {name : "Compania Corporation", country: "Poland"},
+            {name : "My company", country: "Germany"},
+            {name : "Xamax Corp", country: "USA"},
+            {name : "Handy markt", country: "Belgium"}
+        ];
+    });
+</script>
+
+</body>
+</html>
